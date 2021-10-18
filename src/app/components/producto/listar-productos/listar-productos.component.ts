@@ -15,9 +15,13 @@ export class ListarProductosComponent implements OnInit {
   constructor( private productoService: ProductoService) { }
 
   ngOnInit(): void {
+    this.mostrarProductos();
+  }
+
+  mostrarProductos(){
     this.productoService.obtenerProductos().subscribe(
       response=>{
-         console.log(response);
+         //console.log(response);
          this.productos= response;
          console.log(this.productos);
       },
@@ -25,6 +29,24 @@ export class ListarProductosComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  eliminarProducto(id:number){
+    console.log(id);
+    this.productoService.eliminarProducto(id).subscribe(
+      response=>{
+        console.log(response);
+        alert('Producto eliminado');
+        this.mostrarProductos();
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+
+  editarProducto(id: number){
+     console.log(id);
   }
 
 }

@@ -27,9 +27,17 @@
                 <label for="exampleFormControlInput1" class="form-label">Precio de venta:</label>
                 <input type="number" class="form-control" id="exampleFormControlInput1" name="precioVenta" [(ngModel)]="producto.precioVenta" placeholder="Precio venta">
             </div>
-            <div class="mt-2">
-                <input class="btn btn-success" type="submit" value="Guardar producto" (click)="guardarProducto()">
+
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="mt-2">
+                        <input class="btn btn-success btn-block" type="submit" value="Guardar producto" (click)="guardarProducto()">
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
             </div>
+
         </form>
     </div>
 
