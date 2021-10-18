@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { routing, appRoutingProviders } from './app.routing';
 import { MenuComponent } from './components/menu/menu.component';
 import { RegistroProductoComponent } from './components/producto/registro-producto/registro-producto.component';
 import { ListarProductosComponent } from './components/producto/listar-productos/listar-productos.component';
 import { LoginComponent } from './components/login/login.component';
+
+import { ProductoService } from './services/producto.service';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +23,15 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule, 
+    // AppRoutingModule,
+    FormsModule,
+    routing
   ],
-  providers: [],
+  providers: [
+    appRoutingProviders,
+    ProductoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
